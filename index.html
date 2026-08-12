@@ -5,10 +5,61 @@
     <link rel="icon" type="image/svg+xml" href="/ieeesb/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ieee-landing-page</title>
+    <style>
+      #circuit-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+      }
+      #circuit-background canvas {
+        pointer-events: auto;
+      }
+    </style>
     <script type="module" crossorigin src="/ieeesb/assets/index-Doo9aK0T.js"></script>
     <link rel="stylesheet" crossorigin href="/ieeesb/assets/index-CPyrcAEP.css">
   </head>
   <body>
     <div id="app"></div>
+    <div id="circuit-background"></div>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script>
+      tsParticles.load("circuit-background", {
+        fullScreen: { enable: false },
+        particles: {
+          number: { value: 70 },
+          color: { value: "#4a90e2" },
+          links: {
+            enable: true,
+            color: "#4a90e2",
+            distance: 150,
+            opacity: 0.5,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 1.5,
+            direction: "top",
+            outModes: { default: "out" }
+          },
+          size: { value: { min: 1, max: 3 } },
+          opacity: { value: 0.7 }
+        },
+        interactivity: {
+          events: {
+            onHover: { enable: true, mode: "grab" },
+            onClick: { enable: true, mode: "push" }
+          },
+          modes: {
+            grab: { distance: 180, links: { opacity: 0.8 } },
+            push: { quantity: 4 }
+          }
+        },
+        detectRetina: true
+      });
+    </script>
   </body>
 </html>
