@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .ieee-gradient {
+    background: linear-gradient(135deg, #0A192F 0%, #00629B 100%);
+  }
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+  .glass-glow {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+  }
+  .glass-glow:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  }
+  .text-glow {
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
+  }
+  
+  /* 3D Flip Card Utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  /* Circuit Board Line Utilities */
+  .circuit-line-v {
+    width: 2px;
+    background: linear-gradient(180deg, rgba(47, 184, 255, 0) 0%, #2FB8FF 50%, rgba(47, 184, 255, 0) 100%);
+    box-shadow: 0 0 8px rgba(47, 184, 255, 0.5);
+    margin: 0 auto;
+  }
+  .circuit-line-h {
+    height: 2px;
+    background: linear-gradient(90deg, rgba(47, 184, 255, 0) 0%, #2FB8FF 50%, rgba(47, 184, 255, 0) 100%);
+    box-shadow: 0 0 8px rgba(47, 184, 255, 0.5);
+  }
+  .circuit-node {
+    width: 8px;
+    height: 8px;
+    background: #2FB8FF;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #2FB8FF, 0 0 20px #2FB8FF;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .transform-style-3d {
+    transform: none !important;
+  }
+  .rotate-y-180 {
+    transform: none !important;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+html {
+  scroll-behavior: smooth;
+}
